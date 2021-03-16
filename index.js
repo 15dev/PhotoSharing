@@ -10,16 +10,18 @@ const RateLimit = require('express-rate-limit');
 const app = express();
 const port = 5000;
 
+
 const picturesRouter = require('./routes/picturesRoutes');
 
 
-const limiter = RateLimit({
+const limiter = new RateLimit({
     windowMs: 15*60*1000,
-    max:100
-})
+    max:5
+});
 
 
-app.use('/api/pictures',picturesRouter);
+app.use('/api/pictures',limiter, picturesRouter);
+
 
 app.use('*', function(req,res) {
     res.send("hello");
