@@ -2,6 +2,8 @@ const express = require('express');
 var router = express.Router();
 var pictures = require('../controllers/picturesController');
 
-router.get('/upload',pictures.uploadPictures);
+router.post('/upload',pictures.uploadPictures);
+
+router.post('/download',pictures.downloadPictures);
 
 module.exports = router;

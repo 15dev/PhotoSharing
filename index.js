@@ -10,6 +10,10 @@ const RateLimit = require('express-rate-limit');
 const app = express();
 const port = 5000;
 
+//const bodyParser = require('body-parser');
+
+app.use(express.json());
+
 
 const picturesRouter = require('./routes/picturesRoutes');
 
@@ -24,7 +28,7 @@ app.use('/api/pictures',limiter, picturesRouter);
 
 
 app.use('*', function(req,res) {
-    res.send("hello");
+    res.status(404).send();
 })
 
 

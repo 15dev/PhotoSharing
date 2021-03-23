@@ -1,0 +1,90 @@
+.fileContainer
+{  
+    background: #3d4042;
+    color:white;
+    box-shadow: none;
+}
+
+.Uploader .fileContainer .uploadPicturesWrapper
+{  
+    background: #3d4042;
+    color:white;
+    width: 90%;
+}
+
+.Uploader .fileContainer .uploadPicturesWrapper .uploadPictureContainer
+{
+    width: fit-content;
+    margin:2rem;
+    padding: 0;
+    background: none;
+    border: none;
+}
+
+.Uploader .fileContainer .uploadPicturesWrapper .uploadPictureContainer .uploadPicture
+{
+    width: 250px;
+}
+
+.Uploader
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
+    border-radius: 15px;
+    background-color:#3d4042;
+    padding: 1rem;
+}
+
+.Picture > img{
+    max-width: 250px;
+    margin-top: 0.5rem;
+}
+
+.Pictures {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0.5rem;
+    padding: 0.5rem;
+}
+
+.Picture
+{
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+
+
+.UploadContent
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+}
+
+.UploadContent > .Message
+{
+    width: 100%;
+    height: 100%;
+}
+
+
+.UploadContent > .Message > textarea
+{
+    width: 75%;
+    border-radius: 5px;
+    padding: 0.5rem;
+}
+
+.UploadContent > button
+{
+    width: 10%;
+    margin: 1rem
+}
