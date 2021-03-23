@@ -1,36 +1,61 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ImageUploader from 'react-images-upload';
 
-class Uploader extends Component {
+function Uploader(){
 
-    constructor(props) {
-        super(props);
-        this.state = {pictures: []};
-        this.onDrop = this.onDrop.bind(this);
-    }
+    const [pictureArray, setPictureArray]= React.useState([]);
 
-    onDrop(picture) {
-        this.setState({
-            pictures: this.state.pictures.concat(picture)
-        })
-    }
+    const onDrop = (picture) => {
+        //console.log(picture);
+
+        setPictureArray(pictureArray.concat(picture));
+   
+    };
 
 
-    render() {
-        return (
+    const sendPictures = (pictures) => {
+        console.log(pictures);
+    };
+
+
+ 
+    return (
         <div className="Uploader">
             <ImageUploader
                 withIcon={true}
-                buttonText='CHoose images'
-                onCHange={this.onDrop}
+                buttonText='Choose images'
+                onChange={onDrop}
                 imgExtension={['.jpg', '.gif', '.png']}
                 maxFileSize={5242880}
             />
+
+            <div className="test">
+                
+                {
+                    pictureArray.length > 0 ? <p>Files to upload :</p> : ''
+                }
+
+               {
+                 
+                       
+                   
+                   
+
+                   pictureArray && pictureArray.length > 0 && pictureArray.map((picture) => {
+                        return (
+                            
+                            <div key={picture} className="picture">
+                                <p >{picture.name}</p>
+                                <img src={URL.createObjectURL(picture)} alt={picture.name}/>
+                            </div>
+                        )
+                   })
+                }
+            </div>
+            <button type="button" disabled={!pictureArray.length} onClick={sendPictures({pictureArray})}>Upload</button>
         </div>
-        );
-    }
-
-
+    );
+    
 }
 
 export default Uploader;

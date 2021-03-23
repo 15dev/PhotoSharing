@@ -1,0 +1,48 @@
+Arguments: 
+  /usr/bin/node /usr/share/yarn/bin/yarn.js add react-images-uploading
+
+PATH: 
+  /usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+
+Yarn version: 
+  1.22.5
+
+Node version: 
+  10.24.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: EACCES: permission denied, unlink '/home/user/PhotoSharing/node_modules/js-tokens/CHANGELOG.md'
+
+npm manifest: 
+  {
+    "name": "photosharing",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "server": "nodemon index.js",
+      "client": "cd client && yarn start",
+      "start": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "express": "^4.17.1",
+      "express-rate-limit": "^5.2.6",
+      "nodemon": "^2.0.7",
+      "rate-limiter-flexible": "^2.2.1",
+      "react-dom": "^17.0.1",
+      "react-images-upload": "^1.2.8",
+      "react-images-uploading": "^3.1.2",
+      "yarn": "^1.22.10"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

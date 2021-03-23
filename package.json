@@ -6,7 +6,7 @@
   "scripts": {
     "server": "nodemon index.js",
     "client": "cd client && yarn start",
-    "start": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+    "start": "concurrently --kill-others \"yarn server\" \"yarn client\""
   },
   "author": "",
   "license": "ISC",
@@ -17,6 +17,7 @@
     "rate-limiter-flexible": "^2.2.1",
     "react-dom": "^17.0.1",
     "react-images-upload": "^1.2.8",
+    "react-images-uploading": "^3.1.2",
     "yarn": "^1.22.10"
   }
 }
