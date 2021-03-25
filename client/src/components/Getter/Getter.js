@@ -18,7 +18,7 @@ function Getter(){
 
         let data = '{"idShared": "'+idShared+'"}';
 
-        console.log(data);
+        //console.log(data);
 
         fetch('api/pictures/download',{
             method:'POST',
@@ -29,7 +29,7 @@ function Getter(){
             body: data
         })
         .then(response => response.json())
-        .then(data => setPictureDownloaded(data));;
+        .then(data => setPictureDownloaded(data));
 
 
     }
@@ -47,7 +47,7 @@ function Getter(){
                         pictureDownloaded.map((picture,i) => {
 
                             const pictureBase64 = JSON.parse(picture.picture).base64
-                            const Example = ({ data }) => <img  src={`${data}`} />
+                            const Example = ({ data }) => <img alt={i} src={`${data}`} />
 
                             return(
                                 <Example key={i} data={pictureBase64}/>

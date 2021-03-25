@@ -17,10 +17,10 @@ exports.uploadPictures = function(req,res,next) {
 
     pool.query(uploadPicturesEnv)
     .then((result) => { 
-        console.log(result);
+        //console.log(result);
 
         pictures.forEach(element => {
-            console.log(element.base64);
+            //console.log(element.base64);
             pool.query({
                 name:'upload pictures',
                 text:'INSERT INTO pictures (upload_id,picture) VALUES($1,$2);',
@@ -28,7 +28,7 @@ exports.uploadPictures = function(req,res,next) {
             })
             .then((result2) => { 
                 res.status(200).json({idToShare: id});
-                console.log(result2);
+                //console.log(result2);
             })
             .catch((error) => {
                 console.log(error);
@@ -46,6 +46,56 @@ exports.uploadPictures = function(req,res,next) {
 
 }
 
+
+// PROBLEME INJECTION
+exports.downloadPictures = function(req,res,next) {
+    const id = req.body.idShared;
+    //console.log(id);
+    
+    const sql =  "SELECT pictures.picture FROM pictures INNER JOIN uploads ON pictures.upload_id=uploads.upload_id WHERE uploads.upload_id='"+id+"';"
+  
+    var statements = sql.split(';'); 
+    var ctr = 0;
+
+    function next () {
+
+        var statement = statements.shift();
+
+        if(statement) {
+            //console.log(statement);
+            const downloadPictures = {
+                name:'download pictures'+ctr,
+                text:statement
+            } 
+
+            pool.query(downloadPictures)
+            .then((result) => { 
+        
+                if(result.rowCount > 0){
+                    res.status(200).send(result.rows);
+                } else {
+                    res.status(404).send('No picture found with id '+id);
+                }
+                console.log(result);
+                
+                next();
+            })
+            .catch((error) => {
+                res.status(504);
+                console.log(error);
+            });
+        }
+
+        ctr++;
+
+    };
+    next();
+}
+
+
+
+// INJECTION CORRIGEE
+/*
 exports.downloadPictures = function(req,res,next) {
     const id = req.body.idShared;
     console.log(id);
@@ -61,4 +111,6 @@ exports.downloadPictures = function(req,res,next) {
         res.status(200).send(result.rows);
     });
 
-}
+}*/
+
+

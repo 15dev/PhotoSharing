@@ -5,7 +5,9 @@
 // pour voir l'image
 
 const express = require('express');
-const RateLimit = require('express-rate-limit');
+
+
+require('dotenv').config({path: __dirname + '/.env'})
 
 const app = express();
 const port = 5000;
@@ -18,13 +20,10 @@ app.use(express.json());
 const picturesRouter = require('./routes/picturesRoutes');
 
 
-const limiter = new RateLimit({
-    windowMs: 15*60*1000,
-    max:5
-});
 
 
-app.use('/api/pictures',limiter, picturesRouter);
+
+app.use('/api/pictures', picturesRouter);
 
 
 app.use('*', function(req,res) {

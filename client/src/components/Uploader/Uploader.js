@@ -13,8 +13,9 @@ function Uploader(){
     const [pictureArray, setPictureArray]= React.useState([]);
 
 
-    const [message, setMessage] = React.useState('No message.');
+    //const [message, setMessage] = React.useState('No message.');
 
+    const message = 'No message.';
     const [idToShare, setIdToShare] = React.useState('');
 
 
@@ -22,10 +23,11 @@ function Uploader(){
         setPictureArray(picture);
     };
 
+    /*
     function handleChange(e){
         setMessage(e.target.value);
-        console.log(e.target.value);
-    }
+        //console.log(e.target.value);
+    }*/
 
     function getBase64(file, cb) {
         let reader = new FileReader();
@@ -59,7 +61,7 @@ function Uploader(){
 
                 obj["pictures"].push({base64:result});
                 //jsonData = jsonData.substring(0,n)+'"message":'+result+jsonData.substring(n);
-                console.log(result);
+                //console.log(result);
                 if(ctr === pictureArray.length){
 
                     obj["id"]=URL.createObjectURL(pictureArray[0]).split("/")[3];
@@ -95,7 +97,7 @@ function Uploader(){
 
             <div className="UploadContent">
                 {
-                    pictureArray.length > 0 && <div className="Message"><p>Message :</p><textarea onChange={handleChange} /></div>
+                    pictureArray.length > 0 && <div className="Message"></div>
                 }
                 <button type="button" disabled={!pictureArray.length} onClick={sendPictures}>Upload</button>
             </div>
