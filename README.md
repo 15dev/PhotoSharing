@@ -1,7 +1,5 @@
 # PhotoSharing
 
-![Pipeline status](https://git.vuillermet.bzh/imta-formation/fip3a/cybpix/badges/master/pipeline.svg)
-
 Démo https://cybpix.elektron.ink
 
 Dépôt k8s https://github.com/Nemavio/CybPix :-)
