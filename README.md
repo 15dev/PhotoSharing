@@ -16,6 +16,7 @@ Un des points importants de ce projet réside dans la sécurité de l'applicatio
 Ainsi, nous avons mis en place ces points de sécurité :
 
 :bomb: Injection SQL (injection développée volontairement, car le fonctionnement de pg sous node empêche toute injection de base)
+
 :writing_hand: Pour tester l'injection : commenter les lignes 51 à 66 et décommenter les lignes 70 à 114 du fichier PhotoSharing/controllers/picturesController.js
 
 :heavy_check_mark: Code pour éviter ce type d'injection
