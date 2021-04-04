@@ -16,6 +16,10 @@ Un des points importants de ce projet réside dans la sécurité de l'applicatio
 Ainsi, nous avons mis en place ces points de sécurité :
 
 :bomb: Injection SQL (injection développée volontairement, car le fonctionnement de pg sous node empêche toute injection de base)
+:writing_hand: Pour tester l'injection : commenter les lignes 51 à 66 et décommenter les lignes 70 à 114 du fichier PhotoSharing/controllers/picturesController.js
+:heavy_check_mark: Code pour éviter ce type d'injection
+
+:heavy_check_mark: Utilisation de la dépendance ["express-rate-limit](https://www.npmjs.com/package/express-rate-limit) pour éviter les attaques DDOS et les attaques par force brute
 
 :bar_chart: Déploiement k8s avec BackEnd et FrontEnd en HA dans plusieurs pods pour tenir la charge
 
@@ -43,7 +47,7 @@ Nous avons pu mettre en oeuvre les compétences suivantes dans ce projet :
 
 ## Auteurs
 
-@15dev : Développement FrontEnd React + BackEnd NodeJS + Schéma de BDD Postgresql
+@15dev : Développement FrontEnd React + BackEnd NodeJS Express + Schéma de BDD Postgresql
 
 @Nemavio : DevOps µK8s
 
