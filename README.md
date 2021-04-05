@@ -22,6 +22,8 @@ Ainsi, nous avons mis en place ces points de sécurité :
 > :heavy_check_mark: Code pour éviter ce type d'injection
 
 :heavy_check_mark: Utilisation de la dépendance [express-rate-limit](https://www.npmjs.com/package/express-rate-limit) pour éviter les attaques DDOS et les attaques par force brute
+> Limité à 1 upload par minute
+> Limité à 1 download par seconde
 
 :bar_chart: Déploiement k8s avec BackEnd et FrontEnd en HA dans plusieurs pods pour tenir la charge
 
